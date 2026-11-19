@@ -27,12 +27,17 @@ def get_reply(user_input):
     """The bot's brain: take the user's text, return a reply (a string)."""
     words = clean_words(user_input)
 
+    # TODO 2: What if the user mentions TWO topics ("school and sports")?
+    # Right now the bot only answers the FIRST one. Could you collect
+    # all the topics in a list instead, and then pick one at random?
+    topics = []
     for word in words:
-        if word in RESPONSES:
-            return random.choice(RESPONSES[word])
-            # TODO 2: What if the user mentions TWO topics ("school and sports")?
-            # Right now the bot only answers the FIRST one. Could you collect
-            # all the topics in a list instead, and then pick one at random?
+        if word in RESPONSES and word not in topics:
+            topics.append(word)
+
+    if len(topics) > 0:
+        topic = random.choice(topics)
+        return random.choice(RESPONSES[topic])
 
     return random.choice(DEFAULT_RESPONSES)
 
@@ -52,6 +57,14 @@ if __name__ == "__main__":
 #
 # CHECKPOINT: type "this is hard". Does the bot still say "Hello"? (It should
 #             not. Why is that fixed now?)
+#   No, now it gives a default reply like "Please go on." clean_words turns the
+#   sentence into ['this', 'is', 'hard'] and then `word in RESPONSES` checks if
+#   the WHOLE word is a key in the dictionary. "this" is not a key, and "hi" is
+#   never looked for inside other words anymore, so the bug is gone.
 #
 # THINK: type "I love my mom". The bot ignores "mom". Why? How could we teach
 #        it that "mom" belongs with "family"? (Stage 4 answers this.)
+#   "mom" is not a key in RESPONSES, only "family" is, and the bot only matches
+#   exact keys. It has no idea mom and family are related. To fix it we could
+#   make a list of words for each topic (mom, dad, sister...) and if any of
+#   them show up, use the family replies.
