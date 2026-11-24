@@ -1,6 +1,6 @@
 # My Chatbot: Reflection & Submission
 
-**Name:** Turner C.  **Period:** ________  **Bot name:** Crumbs
+**Name:** Turner C.  Period: __AI_____  **Bot name:** Crumbs
 
 > Write in your own words. Short, specific answers beat long, vague ones. Refer to what **your** bot actually did.
 
