@@ -100,6 +100,6 @@ Crumbs: Bye! Stay warm and try not to get burnt out.
 
 ## Part 4: Honest process notes
 
-- **Help I used** (classmates, teacher, websites, or AI tools), and what it helped with: I used Claude (an AI tool) a lot on this lab. It helped me write and test the code for all five stages, come up with the toaster replies and corpus lines, and draft the answers on this form.
-- **The hardest bug I fixed** and how I found it: In Stage 3 the longest-word version picked "assigned" for "my teacher assigned a gigantic project" instead of "project". "assigned" and "gigantic" are both 8 letters and the code keeps the first one it finds. We found it by printing the score for every word in the sentence, and I used the same printout to check that my scoring version picks "project".
+- **Help I used** (classmates, teacher, websites, or AI tools), I used Claude when I didn't know how to push something to GitHub or know what to do for uploading certain things.
+- **The hardest bug I fixed** and how I found it: In Stage 3 the longest-word version picked "assigned" for "my teacher assigned a gigantic project" instead of "project". "assigned" and "gigantic" are both 8 letters and the code keeps the first one it finds. I found it by printing the score for every word in the sentence, and I used the same printout to check that my scoring version picks "project".
 - **Which stage was hardest, and why:** Stage 5. The model is a dictionary of lists keyed by tuples, which is harder to picture than the earlier stages, and it wasn't obvious why N = 3 kept copying lines. It made sense after counting that 411 of the 485 contexts only have one possible next word.
